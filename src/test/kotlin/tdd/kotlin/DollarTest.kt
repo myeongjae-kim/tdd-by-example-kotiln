@@ -9,9 +9,4 @@ class DollarTest : StringSpec({
         five.times(2) shouldBe Dollar(10)
         five.times(3) shouldBe Dollar(15)
     }
-
-    "testEquality" {
-        (Dollar(5) == Dollar(5)) shouldBe true
-        (Dollar(5) == Dollar(6)) shouldBe false
-    }
 })

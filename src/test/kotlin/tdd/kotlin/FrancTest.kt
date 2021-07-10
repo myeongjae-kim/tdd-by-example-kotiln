@@ -9,9 +9,4 @@ class FrancTest : StringSpec({
         five.times(2) shouldBe Franc(10)
         five.times(3) shouldBe Franc(15)
     }
-
-    "testEquality" {
-        (Franc(5) == Franc(5)) shouldBe true
-        (Franc(5) == Franc(6)) shouldBe false
-    }
 })

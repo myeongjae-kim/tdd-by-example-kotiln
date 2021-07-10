@@ -1,10 +1,6 @@
 package tdd.kotlin
 
-class Franc(
-    private var amount: Int
-) {
+class Franc(amount: Int): Money(amount) {
 
     fun times(multiplier: Int) = Franc(amount * multiplier)
-
-    override fun equals(other: Any?) = (other as Franc?)?.amount == amount
 }

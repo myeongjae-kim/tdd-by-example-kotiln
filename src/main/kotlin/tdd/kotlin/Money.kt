@@ -1,7 +1,7 @@
 package tdd.kotlin
 
 class Money(
-    private val amount: Int,
+    val amount: Int,
     private val currency: String,
 ): Expression {
 
@@ -12,7 +12,8 @@ class Money(
 
     fun times(multiplier: Int): Money = Money(amount * multiplier, currency)
     fun currency(): String = currency
-    fun plus(addend: Money): Expression = Money(amount + addend.amount, currency)
+    fun plus(addend: Money): Expression = Sum(this, addend)
+    override fun reduce(to: String): Money = this
 
     companion object {
         fun dollar(amount: Int): Money = Money(amount, "USD")

@@ -29,4 +29,18 @@ class MoneyTest: StringSpec({
         val reduced: Money = bank.reduce(sum, "USD")
         reduced shouldBe Money.dollar(10)
     }
+
+    "testPlusReturnsSum" {
+        val five: Money = Money.dollar(5)
+        val result: Expression = five.plus(five)
+        val sum: Sum = result as Sum
+        sum.augend shouldBe five
+        sum.addend shouldBe five
+    }
+
+    "testReduceMoney" {
+        val bank = Bank()
+        val result: Money = bank.reduce(Money.dollar(1), "USD")
+        result shouldBe Money.dollar(1)
+    }
 })

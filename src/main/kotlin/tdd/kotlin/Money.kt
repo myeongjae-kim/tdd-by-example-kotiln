@@ -1,8 +1,8 @@
 package tdd.kotlin
 
-open class Money(
-    protected val amount: Int,
-    protected val currency: String,
+class Money(
+    private val amount: Int,
+    private val currency: String,
 ) {
 
     override fun equals(other: Any?): Boolean {
@@ -10,11 +10,11 @@ open class Money(
         return money?.amount == amount && money.currency == currency
     }
 
-    fun times(multiplier: Int): Money = Franc(amount * multiplier, currency)
+    fun times(multiplier: Int): Money = Money(amount * multiplier, currency)
     fun currency(): String = currency
 
     companion object {
-        fun dollar(amount: Int): Money = Dollar(amount, "USD")
-        fun franc(amount: Int): Money = Franc(amount, "CHF")
+        fun dollar(amount: Int): Money = Money(amount, "USD")
+        fun franc(amount: Int): Money = Money(amount, "CHF")
     }
 }

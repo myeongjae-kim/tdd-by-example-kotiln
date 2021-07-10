@@ -6,10 +6,8 @@ import io.kotest.matchers.shouldBe
 class DollarTest : StringSpec({
     "testMultiplication" {
         val five = Dollar(5)
-        var product = five.times(2)
-        product.amount shouldBe 10
-        product = five.times(3)
-        product.amount shouldBe 15
+        five.times(2) shouldBe Dollar(10)
+        five.times(3) shouldBe Dollar(15)
     }
 
     "testEquality" {

@@ -8,5 +8,7 @@ class MoneyTest: StringSpec({
     "testEquality" {
         (Money(5) == Money(5)) shouldBe true
         (Money(5) == Money(6)) shouldBe false
+
+        (Dollar(5).equals(Franc(5))) shouldBe false
     }
 })

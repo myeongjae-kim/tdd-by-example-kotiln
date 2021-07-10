@@ -8,9 +8,13 @@ open class TestCase(val name: String) {
         val result = TestResult()
         result.testStarted()
         setUp()
-        val method = this.javaClass.getDeclaredMethod(name)
-        method.isAccessible = true
-        method.invoke(this)
+        try {
+            val method = this.javaClass.getDeclaredMethod(name)
+            method.isAccessible = true
+            method.invoke(this)
+        } catch (e: Throwable) {
+            result.testFailed()
+        }
         tearDown()
         return result
     }

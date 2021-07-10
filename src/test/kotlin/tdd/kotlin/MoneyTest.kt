@@ -21,4 +21,12 @@ class MoneyTest: StringSpec({
         Money.dollar(1).currency() shouldBe "USD"
         Money.franc(1).currency() shouldBe "CHF"
     }
+
+    "testSimpleAddition" {
+        val five = Money.dollar(5)
+        val sum: Expression = five.plus(five)
+        val bank: Bank = Bank()
+        val reduced: Money = bank.reduce(sum, "USD")
+        reduced shouldBe Money.dollar(10)
+    }
 })

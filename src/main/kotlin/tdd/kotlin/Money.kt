@@ -1,16 +1,17 @@
 package tdd.kotlin
 
-abstract class Money(
+open class Money(
     protected val amount: Int,
     protected val currency: String,
 ) {
 
     override fun equals(other: Any?): Boolean {
-        return (other as Money?)?.amount == amount && javaClass == other?.javaClass
+        val money = other as Money?
+        return money?.amount == amount && money.currency == currency
     }
 
-    abstract fun times(multiplier: Int): Money
-    abstract fun currency(): String
+    fun times(multiplier: Int): Money = Franc(amount * multiplier, currency)
+    fun currency(): String = currency
 
     companion object {
         fun dollar(amount: Int): Money = Dollar(amount, "USD")

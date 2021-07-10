@@ -13,4 +13,8 @@ class MoneyTest: StringSpec({
         Money.dollar(1).currency() shouldBe "USD"
         Money.franc(1).currency() shouldBe "CHF"
     }
+
+    "testDifferentClassEquality" {
+        (Money(10, "CHF") == Franc(10, "CHF")) shouldBe true
+    }
 })

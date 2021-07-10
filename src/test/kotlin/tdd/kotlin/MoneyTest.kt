@@ -2,6 +2,7 @@ package tdd.kotlin
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 
 class MoneyTest: StringSpec({
 
@@ -58,5 +59,25 @@ class MoneyTest: StringSpec({
         bank.addRate("CHF", "USD", 2)
         val result = bank.reduce(fiveBucks.plus(tenFrancs), "USD")
         result shouldBe Money.dollar(10)
+    }
+
+    "testSumPlusMoney" {
+        val fiveBucks: Expression = Money.dollar(5)
+        val tenFrancs: Expression = Money.franc(10)
+        val bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        val sum: Expression = Sum(fiveBucks, tenFrancs).plus(fiveBucks)
+        val result: Money = bank.reduce(sum, "USD")
+        result shouldBe Money.dollar(15)
+    }
+
+    "testSumTimes" {
+        val fiveBucks: Expression = Money.dollar(5)
+        val tenFrancs: Expression = Money.franc(10)
+        val bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        val sum: Expression = Sum(fiveBucks, tenFrancs).times(2)
+        val result: Money = bank.reduce(sum, "USD")
+        result shouldBe Money.dollar(20)
     }
 })

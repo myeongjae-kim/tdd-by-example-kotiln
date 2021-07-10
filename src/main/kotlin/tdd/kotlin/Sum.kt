@@ -10,7 +10,9 @@ class Sum (
         return Money(amount, to)
     }
 
-    override fun plus(addend: Expression): Expression {
-        TODO("Not yet implemented")
+    override fun plus(addend: Expression): Expression = Sum(this, addend)
+
+    override fun times(multiplier: Int): Expression {
+        return Sum(augend.times(multiplier), addend.times(multiplier))
     }
 }

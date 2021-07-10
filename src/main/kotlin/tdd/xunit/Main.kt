@@ -12,6 +12,8 @@ class TestCaseTest(name: String): TestCase(name) {
     fun testTemplateMethod() {
         val test = WasRun("testMethod")
         test.run(result)
+
+        assert(1 == test.countTestCases())
         assert("setUp testMethod tearDown " == test.log)
     }
 
@@ -39,6 +41,8 @@ class TestCaseTest(name: String): TestCase(name) {
         suite.add(WasRun("testBrokenMethod"))
         val result = TestResult()
         suite.run(result)
+
+        assert(2 == suite.countTestCases())
         assert("2 run, 1 failed" == result.summary())
     }
 }

@@ -1,10 +1,12 @@
 package tdd.xunit
 
-open class TestCase(val name: String) {
+open class TestCase(val name: String): Test {
     open fun setUp() {}
     open fun tearDown() {}
 
-    fun run(result: TestResult) {
+    override fun countTestCases(): Int = 1
+
+    override fun run(result: TestResult) {
         result.testStarted()
         setUp()
         try {

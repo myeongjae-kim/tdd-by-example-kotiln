@@ -1,13 +1,15 @@
 package tdd.xunit
 
-class TestSuite {
+class TestSuite: Test {
     val tests: MutableList<TestCase> = mutableListOf()
+
+    override fun countTestCases(): Int = tests.size
 
     fun add(test: TestCase) {
         tests.add(test)
     }
 
-    fun run(result: TestResult) {
+    override fun run(result: TestResult) {
         for (test in tests) {
             test.run(result)
         }

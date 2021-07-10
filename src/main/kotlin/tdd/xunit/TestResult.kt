@@ -13,5 +13,4 @@ class TestResult {
     }
 
     fun summary(): String = "$runCount run, $failureCount failed"
-
 }

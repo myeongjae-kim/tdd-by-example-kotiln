@@ -2,7 +2,7 @@ package tdd.xunit
 
 import java.lang.RuntimeException
 
-class TestCaseTest(name: String): TestCase(name) {
+class TestCaseTest(name: String) : TestCase(name) {
     lateinit var result: TestResult
 
     override fun setUp() {

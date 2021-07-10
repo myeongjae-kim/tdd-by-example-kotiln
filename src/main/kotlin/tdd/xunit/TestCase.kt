@@ -1,6 +1,6 @@
 package tdd.xunit
 
-open class TestCase(val name: String): Test {
+open class TestCase(val name: String) : Test {
     open fun setUp() {}
     open fun tearDown() {}
 

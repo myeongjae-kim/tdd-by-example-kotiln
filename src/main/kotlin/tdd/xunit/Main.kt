@@ -39,5 +39,7 @@ fun assertThatAssertionIsEnabled() {
 fun main() {
     assertThatAssertionIsEnabled()
 
-    TestCaseTest("testTemplateMethod").run()
+    println(TestCaseTest("testTemplateMethod").run().summary())
+    println(TestCaseTest("testFailedResult").run().summary())
+    println(TestCaseTest("testFailedResultFormatting").run().summary())
 }

@@ -11,4 +11,12 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
+
+    testImplementation(Libs.Test.kotest)
+    testImplementation(Libs.Test.kotestAssertionsCore)
+    testImplementation(Libs.Test.kotestPropertyTesting)
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

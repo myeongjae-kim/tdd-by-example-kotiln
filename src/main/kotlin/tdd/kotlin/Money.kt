@@ -3,7 +3,7 @@ package tdd.kotlin
 class Money(
     val amount: Int,
     private val currency: String,
-): Expression {
+) : Expression {
 
     override fun equals(other: Any?): Boolean {
         val money = other as Money?

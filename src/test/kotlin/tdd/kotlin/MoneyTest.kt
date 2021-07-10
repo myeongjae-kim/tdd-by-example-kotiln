@@ -2,9 +2,8 @@ package tdd.kotlin
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.types.shouldBeInstanceOf
 
-class MoneyTest: StringSpec({
+class MoneyTest : StringSpec({
 
     "testMultiplication" {
         val five: Money = Money.franc(5)

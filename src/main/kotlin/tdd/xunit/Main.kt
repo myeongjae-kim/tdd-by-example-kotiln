@@ -5,8 +5,15 @@ import java.lang.RuntimeException
 class TestCaseTest(name: String): TestCase(name) {
     fun testTemplateMethod() {
         val test = WasRun("testMethod")
-        test.run()
+        val result = test.run()
         assert("setUp testMethod tearDown " == test.log)
+        assert("1 run, 0 failed" == result.summary())
+    }
+
+    fun testFailedResult() {
+        val test = WasRun("testBrokenMethod")
+        val result = test.run()
+        assert("1 run, 1 failed" == result.summary())
     }
 }
 
